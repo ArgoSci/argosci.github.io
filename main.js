@@ -17,10 +17,10 @@ disconnectButton.addEventListener('click', function() {
 
 // Handle the form
 sendForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Предотвратить отправку формы
-  send(inputField.value); // Отправить содержимое текстового поля
-  inputField.value = '';  // Обнулить текстовое поле
-  inputField.focus();     // Вернуть фокус на текстовое поле
+  event.preventDefault(); // Prevent form sending
+  send(inputField.value); // Send text field contents
+  inputField.value = '';  // Zero text field
+  inputField.focus();     // Focus on text field
 });
 
 // Cache of the selected device object
