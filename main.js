@@ -46,7 +46,7 @@ function requestBluetoothDevice() {
   log('Requesting bluetooth device...');
 
   return navigator.bluetooth.requestDevice({
-    filters: [{ filters: [{ services: [this.service] }], // The HC08 BLE service UUID = FFE0; filtered by name instead {name: 'HC08-1'}
+    filters: [{ filters: [{ services: [self.service] }], // The HC08 BLE service UUID = FFE0; filtered by name instead {name: 'HC08-1'}
   }).
       then(device => {
         log('"' + device.name + '" bluetooth device selected');
@@ -82,12 +82,12 @@ function connectDeviceAndCacheCharacteristic(device) {
       then(server => {
         log('GATT server connected, getting service...');
 
-        return server.getPrimaryService(this.service); // The HC08 BLE service UUID = FFE0
+        return server.getPrimaryService(self.service); // The HC08 BLE service UUID = FFE0
       }).
       then(service => {
         log('Service found, getting characteristic...');
 
-        return service.getCharacteristic(this.characteristic); // The HC08 BLE characteristic UUID = FFE1
+        return service.getCharacteristic(self.characteristic); // The HC08 BLE characteristic UUID = FFE1
       }).
       then(characteristic => {
         log('Characteristic found');
