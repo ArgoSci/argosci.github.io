@@ -47,8 +47,7 @@ function requestBluetoothDevice() {
 
   return navigator.bluetooth.requestDevice({
     filters: [
-      {name: 'HC08-1'},
-      {services: ['003F2122-97EE-7FC4-0621-AD40578EDDF2']}, // aded name and UUID filter
+      {name: 'HC08-1'}, // aded name and UUID filter
     ],
   }).
       then(device => {
