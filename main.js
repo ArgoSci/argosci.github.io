@@ -46,7 +46,10 @@ function requestBluetoothDevice() {
   log('Requesting bluetooth device...');
 
   return navigator.bluetooth.requestDevice({
-    filters: [{ filters: [{name: 'HC08-1'}] }], // The HC08 BLE service UUID = FFE0; filtered by name instead {name: 'HC08-1'}
+    filters: [
+      {name: 'HC08-1'},
+      {services: ['003F2122-97EE-7FC4-0621-AD40578EDDF2']}, // aded name and UUID filter
+    ],
   }).
       then(device => {
         log('"' + device.name + '" bluetooth device selected');
