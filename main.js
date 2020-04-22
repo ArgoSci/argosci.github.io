@@ -84,12 +84,12 @@ function connectDeviceAndCacheCharacteristic(device) {
       then(server => {
         log('GATT server connected, getting service...');
 
-        return server.getPrimaryService(0xFFE0); // The HC08 BLE service UUID = FFE0
+        return server.getPrimaryService("0000ffe0-0000-1000-8000-00805f9b34fb"); // The HC08 BLE service UUID = FFE0, Cc245XDelegate
       }).
       then(service => {
         log('Service found, getting characteristic...');
 
-        return service.getCharacteristic(0xFFE1); // The HC08 BLE characteristic UUID = FFE1
+        return service.getCharacteristic("0000ffe1-0000-1000-8000-00805f9b34fb"); // The HC08 BLE characteristic UUID = FFE1, Cc245XDelegate
       }).
       then(characteristic => {
         log('Characteristic found');
